@@ -12,7 +12,7 @@ public class BDSimulado {
 		this.filmes = new ArrayList<Filme>();
 
 		// Instanciar objetos
-		Filme f1 = new Filme("Star Wars 1", "Jorge Lucas", 1977, "Ficçã cientifica", null);
+		Filme f1 = new Filme("Star Wars", "Jorge Lucas", 1977, "Ficçã cientifica", null);
 		Filme f2 = new Filme("Star Wars 7: O despertar da força", "Jorge Lucas", 2015, "Ficçã cientifica", null);
 		Filme f3 = new Filme("Forest Gump", "Robert Zemeckis", 1994, "Drama", null);
 		Filme f4 = new Filme("Clube da luta", "David Fincher", 1999, "Drama", null);
@@ -83,6 +83,32 @@ public class BDSimulado {
 				resultado.add(this.filmes.get(i));
 			}
 
+		}
+		return resultado;
+	}
+
+	// Metodo que retorna filme pelo genero
+	public ArrayList<Filme> getFilmePorGenero(String genero) {
+		ArrayList<Filme> resultado = new ArrayList<>();
+
+		// percorrer lista de filmes
+		for (int i = 0; i < filmes.size(); i++) {
+			if (this.filmes.get(i).getGenero().equals(genero)) {
+				resultado.add(this.filmes.get(i));
+			}
+		}
+		return resultado;
+	}
+
+	// Metodo busca filme por nome
+	public ArrayList<Filme> getFilmePorNome(String nome) {
+		ArrayList<Filme> resultado = new ArrayList<>();
+
+		// Pecorrer lista de filme
+		for (int i = 0; i < filmes.size(); i++) {
+			if (this.filmes.get(i).getTitulo().equals(nome)) {
+				resultado.add(this.filmes.get(i));
+			}
 		}
 		return resultado;
 	}

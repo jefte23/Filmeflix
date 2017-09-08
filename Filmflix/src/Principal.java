@@ -9,7 +9,8 @@ public class Principal {
 
 		// Recuperar a lista de filmmes e usuarios
 		ArrayList<Filme> filmes = bds.getFilmes();
-		ArrayList<Usuario> usuarios = bds.getUsuarios();
+
+		/* ArrayList<Usuario> usuarios = bds.getUsuarios(); */
 
 		// Exibindo filmes que foram feitos depois o ano 2000
 		for (int i = 0; i < filmes.size(); i++) {
@@ -18,6 +19,8 @@ public class Principal {
 			}
 		}
 
+		System.out.println("---------------------------");
+
 		ArrayList<Filme> filmesPorAno = bds.getFilmesPorAno(1999);
 
 		for (int i = 0; i < filmesPorAno.size(); i++) {
@@ -25,9 +28,28 @@ public class Principal {
 
 		}
 
+		System.out.println("---------------------------");
+
 		ArrayList<Filme> filmesPorDiretor = bds.getListaFilmeDiretor("Jorge Lucas");
 		for (int i = 0; i < filmesPorDiretor.size(); i++) {
 			System.out.println(filmesPorDiretor.get(i).getTitulo());
+
+		}
+
+		System.out.println("---------------------------");
+
+		ArrayList<Filme> filmesPorGenero = bds.getFilmePorGenero("Drama");
+		for (int i = 0; i < filmesPorGenero.size(); i++) {
+			System.out.println(filmesPorGenero.get(i).getTitulo());
+
+		}
+
+		System.out.println("---------------------------");
+
+		ArrayList<Filme> FilmesPorNome = bds.getFilmePorNome("Star Wars");
+		for (int i = 0; i < FilmesPorNome.size(); i++) {
+			System.out.println(FilmesPorNome.get(i).getTitulo() + ", " + FilmesPorNome.get(i).getGenero() + ", "
+					+ FilmesPorNome.get(i).getAnoLancamento());
 
 		}
 
