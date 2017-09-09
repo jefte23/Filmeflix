@@ -46,13 +46,30 @@ public class Principal {
 
 		System.out.println("---------------------------");
 
-		ArrayList<Filme> FilmesPorNome = bds.getFilmePorNome("Star Wars");
-		for (int i = 0; i < FilmesPorNome.size(); i++) {
-			System.out.println(FilmesPorNome.get(i).getTitulo() + ", " + FilmesPorNome.get(i).getGenero() + ", "
-					+ FilmesPorNome.get(i).getAnoLancamento());
+		Usuario usuario = bds.getUsuarioPorCPF("03379190");
+		System.out.println(usuario);
+
+		System.out.println("---------------------------");
+
+		Filme filme = bds.getFilmePorNome("Star Wars");
+		System.out.println(filme);
+
+		// Criar avaliações para ps filmes
+		bds.addAvaliacaoFilme("Star Wars", "12356412", 5);
+		bds.addAvaliacaoFilme("Clube da luta", "02919223", 4);
+		bds.addAvaliacaoFilme("Star Wars 7: O despertar da força", "09012912", 3);
+		bds.addAvaliacaoFilme("Forest Gump", "12123456", 4);
+		bds.addAvaliacaoFilme("Os Outros", "09012912", 3);
+
+		// Listar todos os filmes com avaliacao >= 4
+
+		System.out.println("---------------------------");
+
+		ArrayList<Filme> filmesPorNota = bds.getBuscaAvaliacao(4);
+		for (int i = 0; i < filmesPorNota.size(); i++) {
+			System.out.println(filmesPorNota.get(i).getTitulo());
 
 		}
-
 	}
 
 }

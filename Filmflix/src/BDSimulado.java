@@ -31,12 +31,12 @@ public class BDSimulado {
 		this.usuarios = new ArrayList<Usuario>();
 
 		// instancia objetos da clase usuario
-		Usuario u1 = new Usuario("João", "Masculino", 55);
-		Usuario u2 = new Usuario("José", "Masculino", 15);
-		Usuario u3 = new Usuario("Adão", "Masculino", 45);
-		Usuario u4 = new Usuario("Maria", "Feminino", 27);
-		Usuario u5 = new Usuario("Juliana", "Feminino", 42);
-		Usuario u6 = new Usuario("Alice", "Feminino", 16);
+		Usuario u1 = new Usuario("12356412", "João", "Masculino", 55);
+		Usuario u2 = new Usuario("02919223", "José", "Masculino", 15);
+		Usuario u3 = new Usuario("12345677", "Adão", "Masculino", 45);
+		Usuario u4 = new Usuario("09012912", "Maria", "Feminino", 27);
+		Usuario u5 = new Usuario("03379190", "Juliana", "Feminino", 42);
+		Usuario u6 = new Usuario("12123456", "Alice", "Feminino", 16);
 
 		// Colocar usuarios na lista
 		this.usuarios.add(u1);
@@ -100,14 +100,58 @@ public class BDSimulado {
 		return resultado;
 	}
 
+	public Usuario getUsuarioPorCPF(String CPU) {
+
+		Usuario resultado = null;
+		// Percorre a lista de usuarios
+		for (int i = 0; i < this.usuarios.size(); i++) {
+			// Verificar se CPF corresponde ao CPF informado
+			if (this.usuarios.get(i).getCPF().equals(CPU)) {
+				resultado = this.usuarios.get(i);
+			}
+		}
+
+		return resultado;
+	}
+
 	// Metodo busca filme por nome
-	public ArrayList<Filme> getFilmePorNome(String nome) {
-		ArrayList<Filme> resultado = new ArrayList<>();
+	public Filme getFilmePorNome(String nome) {
+
+		Filme resultado = null;
 
 		// Pecorrer lista de filme
-		for (int i = 0; i < filmes.size(); i++) {
+		for (int i = 0; i < this.filmes.size(); i++) {
 			if (this.filmes.get(i).getTitulo().equals(nome)) {
-				resultado.add(this.filmes.get(i));
+				resultado = this.filmes.get(i);
+			}
+		}
+		return resultado;
+	}
+
+	// Metodo que dá avaliação a um filme
+	public void addAvaliacaoFilme(String nomeFilme, String CPFUsuario, int notaFilme) {
+		// Declarar um objeto de avaliação
+		Avaliacao avaliacao = new Avaliacao(getUsuarioPorCPF(CPFUsuario), notaFilme);
+
+		// percorrer a losta de filme
+		for (int i = 0; i < this.filmes.size(); i++) {
+			if (this.filmes.get(i).getTitulo().equals(nomeFilme)) {
+				this.filmes.get(i).getAvaliacoes().add(avaliacao);
+			}
+
+		}
+	}
+
+	public ArrayList<Filme> getBuscaAvaliacao(int valor) {
+
+		ArrayList<Filme> resultado = new ArrayList<>();
+
+		// Percorrer Lita
+		for (int i = 0; i < this.filmes.size(); i++) {
+			for (int j = 0; j < filmes.get(i).getAvaliacoes().size(); j++) {
+				if (this.filmes.get(i).getAvaliacoes().get(j).getNota() >= valor) {
+					resultado.add(this.filmes.get(i));
+				}
 			}
 		}
 		return resultado;

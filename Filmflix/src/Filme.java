@@ -18,6 +18,12 @@ public class Filme {
 		this.avaliacoes = new ArrayList<Avaliacao>();
 	}
 
+	@Override
+	public String toString() {
+		return "Filme [titulo=" + titulo + ", diretor=" + diretor + ", anoLancamento=" + anoLancamento + ", genero="
+				+ genero + ", avaliacoes=" + avaliacoes + "]";
+	}
+
 	// Metodos Get e Set
 	public String getTitulo() {
 		return titulo;

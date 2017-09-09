@@ -11,6 +11,11 @@ public class Avaliacao {
 		this.nota = nota;
 	}
 
+	@Override
+	public String toString() {
+		return "nota=" + nota;
+	}
+
 	// metodo Get e Set
 	public Usuario getUsuarios() {
 		return usuarios;
