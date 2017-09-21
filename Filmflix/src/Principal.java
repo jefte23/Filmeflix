@@ -25,7 +25,6 @@ public class Principal {
 
 		for (int i = 0; i < filmesPorAno.size(); i++) {
 			System.out.println(filmesPorAno.get(i).getTitulo());
-
 		}
 
 		System.out.println("---------------------------");
@@ -33,7 +32,6 @@ public class Principal {
 		ArrayList<Filme> filmesPorDiretor = bds.getListaFilmeDiretor("Jorge Lucas");
 		for (int i = 0; i < filmesPorDiretor.size(); i++) {
 			System.out.println(filmesPorDiretor.get(i).getTitulo());
-
 		}
 
 		System.out.println("---------------------------");
@@ -41,7 +39,6 @@ public class Principal {
 		ArrayList<Filme> filmesPorGenero = bds.getFilmePorGenero("Drama");
 		for (int i = 0; i < filmesPorGenero.size(); i++) {
 			System.out.println(filmesPorGenero.get(i).getTitulo());
-
 		}
 
 		System.out.println("---------------------------");

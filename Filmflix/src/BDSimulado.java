@@ -116,7 +116,6 @@ public class BDSimulado {
 
 	// Metodo busca filme por nome
 	public Filme getFilmePorNome(String nome) {
-
 		Filme resultado = null;
 
 		// Pecorrer lista de filme
@@ -133,7 +132,7 @@ public class BDSimulado {
 		// Declarar um objeto de avaliação
 		Avaliacao avaliacao = new Avaliacao(getUsuarioPorCPF(CPFUsuario), notaFilme);
 
-		// percorrer a losta de filme
+		// percorrer a lista de filme
 		for (int i = 0; i < this.filmes.size(); i++) {
 			if (this.filmes.get(i).getTitulo().equals(nomeFilme)) {
 				this.filmes.get(i).getAvaliacoes().add(avaliacao);
@@ -146,7 +145,7 @@ public class BDSimulado {
 
 		ArrayList<Filme> resultado = new ArrayList<>();
 
-		// Percorrer Lita
+		// Percorrer Lista
 		for (int i = 0; i < this.filmes.size(); i++) {
 			for (int j = 0; j < filmes.get(i).getAvaliacoes().size(); j++) {
 				if (this.filmes.get(i).getAvaliacoes().get(j).getNota() >= valor) {
